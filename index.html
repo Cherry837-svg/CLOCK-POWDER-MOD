@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -7,13 +7,19 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="mobile-web-app-capable" content="yes">
     <title>Черные Цифровые Часы</title>
+    
+    <!-- Подключаем оригинальный 7-сегментный шрифт DSEG с четкими разрезами -->
+    <link rel="stylesheet" href="https://jsdelivr.net">
+    
     <style>
         body {
             margin: 0;
             padding: 0;
             background-color: black !important; /* Принудительно заставляем экран быть черным */
             color: #00ff00;
-            font-family: 'Courier New', Courier, monospace;
+            /* Применяем строго 7-сегментный шрифт для всей страницы */
+            font-family: 'DSEG7-Modern', sans-serif;
+            font-style: italic; /* Легкий наклон, как на реальных электронных табло */
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -28,31 +34,31 @@
         .clock-container {
             display: flex;
             align-items: baseline;
-            font-weight: 900;
+            font-weight: 700;
             margin-bottom: 45px;
         }
 
         /* Часы и минуты */
         .main-time {
-            font-size: 14vw;
+            font-size: 15vw;
             line-height: 1;
-            -webkit-text-stroke: 2px #00ff00;
+            letter-spacing: 2px; /* Четкий зазор между самими цифрами */
         }
 
         /* Разделительные две точки */
         .dots {
-            font-size: 16vw;
+            font-size: 15vw;
             line-height: 1;
-            margin: 0 5px;
+            margin: 0 10px;
             animation: blink 1s infinite steps(1, start);
         }
 
         /* Секунды */
         .seconds {
-            font-size: 9.5vw;
+            font-size: 7.5vw;
             line-height: 1;
-            margin-left: 8px;
-            font-weight: 900;
+            margin-left: 15px;
+            font-weight: 700;
         }
 
         /* Блок батареи */
@@ -121,9 +127,10 @@
 
         .battery-text {
             position: absolute;
-            font-size: 36px;
-            font-weight: 900;
+            font-size: 24px;
+            font-weight: 700;
             color: #00ff00;
+            letter-spacing: 1px;
         }
 
         @keyframes blink {
